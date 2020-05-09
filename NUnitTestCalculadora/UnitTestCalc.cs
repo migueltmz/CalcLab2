@@ -18,7 +18,7 @@ namespace NUnitTestCalculadora
             int resultado = 5;
             //Act
             int r = Calculadora.suma(a,b);
-            //Asser
+            //Assert
             Assert.AreEqual(resultado, r);
         }
 
@@ -31,7 +31,7 @@ namespace NUnitTestCalculadora
             int resultado = -3;
             //Act
             int r = Calculadora.resta(a, b);
-            //Asser
+            //Assert
             Assert.AreEqual(resultado, r);
         }
 
@@ -44,7 +44,7 @@ namespace NUnitTestCalculadora
             int resultado = 2;
             //Act
             int r = Calculadora.division(a, b);
-            //Asser
+            //Assert
             Assert.AreEqual(resultado, r);
         }
 
@@ -57,8 +57,44 @@ namespace NUnitTestCalculadora
             int resultado = 8;
             //Act
             int r = Calculadora.multiplicacion(a, b);
-            //Asser
+            //Assert
             Assert.AreEqual(resultado, r);
+        }
+
+        [Test]
+        public void TestRaizCuadradaPositivos()
+        {
+            //Arrange
+            int a = 7;
+            double resultado = 2.64575131106;
+            //Act
+            double r = Calculadora.raiz(a);
+            //Assert
+            Assert.AreEqual(resultado, r, 0.00001); //una de las sobrecargas del método AreEqual incluye como tercer parámetro un delta que es la precisión
+        }
+
+        [Test]
+        public void TestRaizCuadradaNegativos()
+        {
+            //Arrange
+            int a = -7;
+            string resultado = "No es posible calcular la raiz de un número negativo.";
+            //Act
+            string r = Calculadora.raiz(a);
+            //Assert
+            Assert.AreEqual(resultado, r);
+        }
+
+        [Test]
+        public void TestDemuestraAssertconDelta()
+        {
+            //Arrange
+            int a = 7;
+            double resultado = 2.64575131106;
+            //Act
+            double r = 2.645759;
+            //Assert
+            Assert.AreEqual(resultado, r, 0.00001); //una de las sobrecargas del método AreEqual incluye como tercer parámetro un delta que es la precisión
         }
     }
 }
