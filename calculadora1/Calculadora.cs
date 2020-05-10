@@ -42,21 +42,31 @@ namespace calculadora
             
             return resultado;
         }
-        public static double raiz(double a)
-        {   //Implementación de la raiz cuadrada siguiendo el Algoritmo babilonico
-            double b = a;
-            if (a < 0)
+        public static double raiz(double x)
+        {   //Implementación de la raiz cuadrada siguiendo el algoritmo de Bakhshali
+            double b;
+            //comprobar si a es 0
+            if (x == 0)
             {
-                b = double.NaN;
+                b = 0;
             }
             else
             {
-                double delta = 0.000001;
-                double precision = 10;
-                while (precision > delta)
+                if (x < 0)
                 {
-                    b = (a / b + b) / 2;
-                    precision = Math.Abs(b - (a / b));
+                    b = double.NaN;
+                }
+                else
+                {
+                    //Buscar el cuadrado perfecto más cercano
+                    int n = 1;
+                    while (n*n<x)
+                    {
+                        n++;
+                    }
+                    n--;
+                    //calcular
+                    b = (Math.Pow(n, 4) + x * 6 * Math.Pow(n, 2) + Math.Pow(x,2)) / (4 * Math.Pow(n,3) + 4 * n * x);
                 }
             }
             return b;

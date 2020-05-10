@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
 using calculadora;
+using System;
 
 namespace NUnitTestCalculadora
 {
@@ -87,15 +88,14 @@ namespace NUnitTestCalculadora
         }
 
         [Test]
-        public void TestRaizCuadradaPositivos()
+        public void TestRaizCuadradaPositivos([Values(0, 2, 35, 40)] int a)
         {
             //Arrange
-            int a = 7;
-            double resultado = 2.64575131106;
+            double raizEsperada = Math.Sqrt(a);
             //Act
             double r = Calculadora.raiz(a);
             //Assert
-            Assert.AreEqual(resultado, r, 0.00001); //una de las sobrecargas del método AreEqual incluye como tercer parámetro un delta que es la precisión
+            Assert.AreEqual(raizEsperada, r, 0.00001); //una de las sobrecargas del método AreEqual incluye como tercer parámetro un delta que es la precisión
         }
 
         [Test]

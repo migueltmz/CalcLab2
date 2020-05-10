@@ -6,7 +6,7 @@ namespace calculadora
     {
         static void Main(string[] args)
         {
-            Calculadora.raiz(3);
+            Console.WriteLine(Calculadora.raiz(2));
         }
     }
 }
