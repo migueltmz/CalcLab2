@@ -43,13 +43,23 @@ namespace calculadora
             return resultado;
         }
         public static double raiz(double a)
-        {
-            double resultado = Math.Sqrt(a);
-            return resultado;
-        }
-        public static double operacion(int a)
-        {
-            return 0;
+        {   //Implementación de la raiz cuadrada siguiendo el Algoritmo babilonico
+            double b = a;
+            if (a < 0)
+            {
+                b = double.NaN;
+            }
+            else
+            {
+                double delta = 0.000001;
+                double precision = 10;
+                while (precision > delta)
+                {
+                    b = (a / b + b) / 2;
+                    precision = Math.Abs(b - (a / b));
+                }
+            }
+            return b;
         }
     }
 }
