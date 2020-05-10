@@ -4,10 +4,19 @@
 
 En este repositorio se irá mostrando la evolución del laboratorio2 de la asignatura de Ingeniería del software avanzada.
 
-1. En primer lugar he instalado git y configurado el ssh para conectar con github
+Resumo el flujo de trabajo y la organización de las ramas:
 
-2. He creado un proyecto en C# con Visual studio code
+* En primer lugar creé la rama master, el proyecto de Visual Estudio con la libería de tests Nunit.
 
-3. He configurado el .gitignore con __bin/__ __obj/__ y __.vscode/__
+* Tuve algunos fallos con git local y creé un segundo repositorio, por eso el commit inicial actual resume varios pasos.
 
-4. He conectado con el repositorio remoto en github y subido la rama master
+	* Esencialmente, el git init lo hice en la carpeta del proyecto Calculadora y al crear el proyecto de tests, fuera, git no seguía los archivos de test
+	
+	* Así que creé otro repositorio local en un directorio superior
+
+* En la rama tests escribí los tests. Cuando estuvieron listos merge a master.
+
+* En la rama operaciones creé las funciones que realizaban las operacones. Merge a master.
+
+* En la rama altRaiz probé el algortimo de Bakhshali pero vi que no daba la precisión para argumentos de entrada pequeños.
+
