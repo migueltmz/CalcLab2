@@ -6,9 +6,9 @@ namespace calculadora
 {
     public static class Calculadora
     {
-        public static int suma(int a, int b)
+        public static double operacion(int a)
         {
-            return a + b;
+            return 0;
         }
     }
 }

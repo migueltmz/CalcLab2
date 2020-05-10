@@ -1,4 +1,6 @@
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
+using calculadora;
 
 namespace NUnitTestCalculadora
 {
@@ -10,20 +12,19 @@ namespace NUnitTestCalculadora
         }
 
         [Test]
-        public void TestSumaPositivos()
+        public void TestSuma([Values(1,-3,10000)] int sumando)
         {
             //Arrange
-            int a = 1;
             int b = 4;
-            int resultado = 5;
+            int resultado = sumando + b;
             //Act
-            int r = Calculadora.suma(a,b);
+            int r = Calculadora.suma(sumando,b);
             //Assert
             Assert.AreEqual(resultado, r);
         }
 
         [Test]
-        public void TestRestaPositivos()
+        public void TestResta()
         {
             //Arrange
             int a = 1;
@@ -36,7 +37,7 @@ namespace NUnitTestCalculadora
         }
 
         [Test]
-        public void TestDivisionPositivos()
+        public void TestDivision()
         {
             //Arrange
             int a = 4;
@@ -49,7 +50,31 @@ namespace NUnitTestCalculadora
         }
 
         [Test]
-        public void TestMultiplicacionPositivos()
+        public void TestDivisionCero()
+        {
+            //Arrange
+            int a = 4;
+            int b = 0;
+            //Act
+            int r = Calculadora.division(a, b);
+            //Assert
+            Assert.AreEqual(double.PositiveInfinity, r);
+        }
+
+        [Test]
+        public void TestDivisionCeroNeg()
+        {
+            //Arrange
+            int a = -4;
+            int b = 0;
+            //Act
+            int r = Calculadora.division(a, b);
+            //Assert
+            Assert.AreEqual(double.NegativeInfinity, r);
+        }
+
+        [Test]
+        public void TestMultiplicacion()
         {
             //Arrange
             int a = 4;
@@ -78,18 +103,16 @@ namespace NUnitTestCalculadora
         {
             //Arrange
             int a = -7;
-            string resultado = "No es posible calcular la raiz de un número negativo.";
             //Act
-            string r = Calculadora.raiz(a);
+            double r = Calculadora.raiz(a);
             //Assert
-            Assert.AreEqual(resultado, r);
+            Assert.AreEqual(double.NaN,r);
         }
 
         [Test]
         public void TestDemuestraAssertconDelta()
         {
             //Arrange
-            int a = 7;
             double resultado = 2.64575131106;
             //Act
             double r = 2.645759;
