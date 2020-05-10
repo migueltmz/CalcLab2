@@ -44,7 +44,7 @@ namespace NUnitTestCalculadora
             int b = 2;
             int resultado = 2;
             //Act
-            int r = Calculadora.division(a, b);
+            double r = Calculadora.division(a, b);
             //Assert
             Assert.AreEqual(resultado, r);
         }
@@ -56,7 +56,7 @@ namespace NUnitTestCalculadora
             int a = 4;
             int b = 0;
             //Act
-            int r = Calculadora.division(a, b);
+            double r = Calculadora.division(a, b);
             //Assert
             Assert.AreEqual(double.PositiveInfinity, r);
         }
@@ -68,7 +68,7 @@ namespace NUnitTestCalculadora
             int a = -4;
             int b = 0;
             //Act
-            int r = Calculadora.division(a, b);
+            double r = Calculadora.division(a, b);
             //Assert
             Assert.AreEqual(double.NegativeInfinity, r);
         }

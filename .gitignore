@@ -3,6 +3,7 @@ obj/
 .vscode/
 .vs/
 calculadora1/.vs/
+*.testlog
 
 #copiado de https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 ## Ignore Visual Studio temporary files, build results, and
